@@ -18,11 +18,24 @@ function Home(){
         setTasks(updateTasks)
     }
 
-    
+
     return(
         <>
             <div>
-
+                <input
+                    type="text"
+                    value={task}
+                    onChange={(e) => setTask(e.target.value)}
+                    placeholder="what's next" 
+                />
+                <button onClick={addTask}>Add</button>
+                <ul>
+                    {tasks.map((task, index) => (
+                    <li key={index}>
+                        {task} <button onClick={() => deleteTask(index)}>Delete</button>
+                    </li>
+                    ))}
+                </ul>
             </div>
         </>
     )
